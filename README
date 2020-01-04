@@ -1,0 +1,58 @@
+tomf0333
+
+
+Files:
+	SpaceShip			-	the main and super class for all the other SpaceShips, basically a template that
+							houses every detail a standard ship should have.
+	SpaceShipFactory	-	this class is used to create the different ships in the instance of the
+							SpaceWars game, the created ships are based on the arguments to the program.
+					('a' = aggressive, 'h' = human, 'r' = runner, 'd' = drunk, 's' = special, 'b' = basher)
+	HumanSpaceShip		-	this class represents the human ship in the game SpaceWars, the player controls
+							this ship, you can rotate it right or left, accelerate to a direction,
+							shoot and teleport.
+	AggressiveSpaceShip	-	this class represents the aggressive type of ship in the Spacewars game,
+							it basically tries to run after the closest ship to it and fire when possible.
+	BasherSpaceShip		-	this class represents the basher ship in the game Space Wars, it tries to *bash*
+							enemies, which means run towards them and activate its shield before impact.
+	DrunkardSpaceShip	-	this class represents the drunk space ship of the Space Wars game, he drank too
+							much and it caused him to not exactly work the way you expect a qualified and
+							dignified space ship pilot to work.
+	RunnerSpaceShip		-	this class represents the runner type of ship in the Spacewars game, it tries to
+							run away from the closest ship to it and teleport if it gets to close to it.
+	SpecialSpaceShip	-	this space ship is a special ship with unique abilities, it behaves like any of
+							the other ships at given times:
+								when it has very low energy it runs like runner.
+								when it has a good amount of energy it tries to bash but without shield
+								(i will explain why in a second).
+								when it has a lot of enery it tries to bash as before and shoot like basher.
+							the reason it does not have a shield for bashing is because in addition to the
+							way it acts depicted above it is also a vampire ship and so if it collides with
+							another ship instead of losing health, regardless of if it had its shield on,
+							this ship will get one Health Point up.
+						
+Design:
+	i decided to design this ex by first making the template SpaceShip class and then extending it with
+	every other ship class.
+	after each ship i made sure to add it to the factory and test to see if it acts normaly
+	(to what it was programed to be is normal).
+	i added many constants to the original SpaceShip class because i thought it would make sense that each
+	ship in this game would have attributes that are constant, such as how much energy they start with or
+	how much shooting costs etc, i also made most of the members private and some that i needed for
+	subclasses that i made protected.
+	as to getters and setters, i only made the ones that i needed for the subclasses and made then protected
+	as well because that made more sense to me in the mindset of minimal API.
+	most of what i wrote seemed pretty staight forward to me in terms of comments so i figuerd it would be
+	better to explain in general what each class is about instead of each function in each class
+	(there aren't many either), with the obvious exception that is SpaceShip class itself.
+	
+Implementation issues:
+	i'm not sure if this counts as an issue but the runner ship, aggresive ship and basher ship have very
+	similar chunks of code that i couldn't really figure out what to do with, i thought of making a seperate
+	class for themselves but it would only shorten my code by a third (3 methods become 2).
+	regardless of that choosing what and how the drunk and special ships were going to be was difficult
+	because i didn't really have control over many of the things that the ships could do, meaning the
+	torpedoes or acceleration or shield size and all those were in the classes the university has and we
+	were not given access to.
+	
+Answers to questions:
+	there were none.
